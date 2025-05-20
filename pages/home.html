@@ -1,0 +1,56 @@
+<!-- pages/home.html -->
+<div class="chat-interface d-flex flex-column h-100">
+    <!-- Welcome Message -->
+    <div class="welcome-message text-center py-5">
+        <h1 class="display-4 mb-4 chat-header-container">Shopee Assistant</h1>
+    </div>
+
+    <!-- Chat Container -->
+    <div id="chatContainer" class="chat-container flex-grow-1 overflow-auto p-3 bg-light">
+        <!-- Messages will be added here -->
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area-container bg-white border-top p-3">
+        <form id="chat-input-form" class="chat-input-form">
+            <div class="input-group">
+                <textarea 
+                    id="chat-input" 
+                    class="form-control" 
+                    placeholder="Nhập tin nhắn của bạn..." 
+                    rows="1"
+                    style="resize: none;"
+                ></textarea>
+                <button 
+                    id="send-button" 
+                    class="btn btn-primary" 
+                    type="submit"
+                    disabled
+                >
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
+        <div class="text-center text-muted small mt-2">
+            Shopee Assistant có thể đưa ra thông tin không chính xác. Vui lòng kiểm tra lại thông tin quan trọng.
+        </div>
+    </div>
+</div>
+
+<!-- Templates (place these at the bottom of the file) -->
+<!-- Message template -->
+<template id="message-template">
+    <div class="message d-flex flex-column mb-3">
+        <div class="message-content"></div>
+        <div class="message-time small text-muted text-end"></div>
+    </div>
+</template>
+
+<!-- Typing indicator template -->
+<template id="typing-indicator-template">
+    <div class="typing-indicator d-flex align-items-center p-2 bg-white rounded-3 shadow-sm mb-3">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</template>

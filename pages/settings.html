@@ -1,0 +1,81 @@
+<div class="settings-page h-100 overflow-auto">
+    <div class="container-fluid">
+        <div class="settings-content">
+            <div class="settings-section border-bottom p-4">
+                <h5 class="d-flex align-items-center mb-4"><i class="fas fa-user-cog me-2"></i> Tài khoản</h5>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <div class="fw-medium">Thông tin cá nhân</div>
+                    <div>
+                        <button class="btn btn-sm btn-outline-primary">Chỉnh sửa</button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <div class="fw-medium">Gói dịch vụ</div>
+                    <div>
+                        <span class="badge bg-primary">Free</span>
+                        <button class="btn btn-sm btn-outline-secondary ms-2">Nâng cấp</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-section border-bottom p-4">
+                <h5 class="d-flex align-items-center mb-4"><i class="fas fa-palette me-2"></i> Giao diện</h5>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <div class="fw-medium">Chủ đề</div>
+                    <div class="d-flex gap-3">
+                        <div class="theme-option active" data-theme="light">
+                            <div class="theme-preview light border rounded"></div>
+                            <span>Sáng</span>
+                        </div>
+                        <div class="theme-option" data-theme="dark">
+                            <div class="theme-preview dark border rounded"></div>
+                            <span>Tối</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <div class="fw-medium">Ngôn ngữ</div>
+                    <div>
+                        <select class="form-select form-select-sm">
+                            <option selected>Tiếng Việt</option>
+                            <option>English</option>
+                            <option>中文</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h5><i class="fas fa-bell me-2"></i> Thông báo</h5>
+                <div class="settings-item">
+                    <div class="settings-item-label">Thông báo tin nhắn mới</div>
+                    <div class="settings-item-control">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="notifMessages" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-label">Thông báo khuyến mãi</div>
+                    <div class="settings-item-control">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="notifPromotions" checked>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-section danger-zone">
+                <h5><i class="fas fa-exclamation-triangle me-2"></i> Khu vực nguy hiểm</h5>
+                <div class="settings-item">
+                    <div class="settings-item-label">Xóa tất cả dữ liệu</div>
+                    <div class="settings-item-control">
+                        <button class="btn btn-sm btn-outline-danger" id="resetAllData">
+                            <i class="fas fa-trash-alt me-1"></i> Xóa tất cả
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

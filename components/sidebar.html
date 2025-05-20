@@ -1,0 +1,57 @@
+<div class="sidebar bg-white border-end shadow-sm position-fixed h-100 d-flex flex-column" id="sidebar">
+    <div class="sidebar-header p-3 border-bottom d-flex align-items-center">
+        <img src="assets/images/logo.jpg" alt="Shopee Logo" class="me-2" style="width: 30px; height: 30px;">
+        <h3 class="h5 mb-0 text-primary">Shopee Chatbot</h3>
+    </div>
+    
+    <div class="sidebar-menu p-3 flex-grow-1 overflow-auto">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center py-2 px-3 rounded-end" href="#" data-page="home">
+                    <i class="fas fa-comment me-2"></i>
+                    <span>New Chat</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center py-2 px-3 rounded-end" href="#" data-page="history">
+                    <i class="fas fa-history me-2"></i>
+                    <span>History</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center py-2 px-3 rounded-end" href="#" data-page="saved">
+                    <i class="fas fa-star me-2"></i>
+                    <span>Saved</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center py-2 px-3 rounded-end" href="#" data-page="settings">
+                    <i class="fas fa-cog me-2"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center py-2 px-3 rounded-end" href="#" data-page="about">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="sidebar-footer">
+        <div class="d-flex align-items-center">
+            <div class="flex-shrink-0">
+                <img src="assets/images/user-avatar.jpg" 
+                     alt="User" class="rounded-circle" width="40">
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <h6 class="mb-0" id="sidebar-username">Người dùng</h6>
+                <small class="text-muted" id="sidebar-plan">Free Plan</small>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </div>
+</div>

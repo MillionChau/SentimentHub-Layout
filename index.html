@@ -3,298 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SentimentHub - Đánh giá sản phẩm</title>
+    <title>Shopee NLP Chatbot</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.webp" alt="SentimentHub" class="img-fluid" style="max-height: 40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <form class="d-flex w-50 me-auto">
-                    <input class="form-control me-2" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
-                    <button class="btn btn-light" type="submit">🔍</button>
-                </form>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="./about.html">Giới Thiệu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#featured">Sản phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#reviews">Đánh giá AI</a></li>
-                </ul>
-                <div class="d-flex">
-                    <button class="btn btn-light text-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</button>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Banner -->
-    <div class="container mt-4">
-        <div class="jumbotron text-center bg-light p-5 rounded">
-            <h1 class="display-5">Đánh giá sản phẩm Shopee bằng AI</h1>
-            <p class="lead">Tìm hiểu nhận xét thật từ khách hàng, đánh giá bằng NLP</p>
-            <a href="#search" class="btn btn-primary btn-lg">Bắt đầu ngay</a>
-        </div>
+    <button class="toggle-sidebar" id="toggleSidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Sidebar Component -->
+    <div id="sidebar-container"></div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div id="chat-header-container"></div>
+        <div id="page-container"></div>
     </div>
 
-    <!-- Sản phẩm nổi bật -->
-    <div id="featured" class="container mt-5">
-        <h2 class="text-center mb-4">Sản phẩm nổi bật</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card product-card mb-3">
-                    <img src="images/product1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tai Nghe Bluetooth</h5>
-                        <p class="card-text">Giá: <strong>299.000đ</strong></p>
-                        <p class="card-text">Đã bán: 1.5k</p>
-                        <p class="card-text">⭐ 4.8/5 (2.300 đánh giá)</p>
-                        <button class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card product-card mb-3">
-                    <img src="images/product2.jpg" class="card-img-top" alt="Sản phẩm 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Balo Laptop Chống Nước</h5>
-                        <p class="card-text">Giá: <strong>499.000đ</strong></p>
-                        <p class="card-text">Đã bán: 2.3k</p>
-                        <p class="card-text">⭐ 4.6/5 (1.800 đánh giá)</p>
-                        <button class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card product-card mb-3">
-                    <img src="images/product3.jpg" class="card-img-top" alt="Sản phẩm 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Đồng Hồ Thông Minh</h5>
-                        <p class="card-text">Giá: <strong>1.299.000đ</strong></p>
-                        <p class="card-text">Đã bán: 5k</p>
-                        <p class="card-text">⭐ 4.9/5 (5.600 đánh giá)</p>
-                        <button class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card product-card mb-3">
-                    <img src="images/product1.jpg" class="card-img-top" alt="Sản phẩm 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tai Nghe Bluetooth</h5>
-                        <p class="card-text">Giá: <strong>299.000đ</strong></p>
-                        <p class="card-text">Đã bán: 1.5k</p>
-                        <p class="card-text">⭐ 4.8/5 (2.300 đánh giá)</p>
-                        <button class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card product-card mb-3">
-                    <img src="images/product2.jpg" class="card-img-top" alt="Sản phẩm 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Balo Laptop Chống Nước</h5>
-                        <p class="card-text">Giá: <strong>499.000đ</strong></p>
-                        <p class="card-text">Đã bán: 2.3k</p>
-                        <p class="card-text">⭐ 4.6/5 (1.800 đánh giá)</p>
-                        <button class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card product-card mb-3">
-                    <img src="images/product3.jpg" class="card-img-top" alt="Sản phẩm 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Đồng Hồ Thông Minh</h5>
-                        <p class="card-text">Giá: <strong>1.299.000đ</strong></p>
-                        <p class="card-text">Đã bán: 5k</p>
-                        <p class="card-text">⭐ 4.9/5 (5.600 đánh giá)</p>
-                        <button class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-4">
-            <button class="btn btn-primary" id="loadMore">Xem thêm</button>
-        </div>
-    </div>
-
-    <!-- Đánh giá AI -->
-    <div id="reviews" class="container mt-5">
-        <h2 class="text-center mb-4">Kết quả đánh giá AI</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <h4>Phân tích đánh giá của Tai Nghe Bluetooth:</h4>
-                    <ul>
-                        <li>🔹 70% đánh giá tích cực</li>
-                        <li>🔸 20% đánh giá trung lập</li>
-                        <li>🔻 10% đánh giá tiêu cực</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <canvas id="reviewChart" class="w-100"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Đăng nhập -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Mật khẩu</label>
-                            <input type="password" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Đăng ký -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">Đăng ký</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Họ và tên</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Mật khẩu</label>
-                            <input type="password" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-warning w-100">Đăng ký</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Đánh giá sản phẩm -->
-    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reviewModalLabel">Đánh giá sản phẩm</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Tên của bạn</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Đánh giá</label>
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Điểm đánh giá</label>
-                            <select class="form-control">
-                                <option>1 sao</option>
-                                <option>2 sao</option>
-                                <option>3 sao</option>
-                                <option>4 sao</option>
-                                <option>5 sao</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Gửi đánh giá</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-dark text-light text-center py-4 mt-5">
-        <p>&copy; 2025 SentimentHub. All Rights Reserved.</p>
-        <p>Email: support@shopeereview.com | Hotline: 1900-1234</p>
-    </footer>
-
-    <script>
-        // Biểu đồ đánh giá sản phẩm
-        var ctx = document.getElementById('reviewChart').getContext('2d');
-        var reviewChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Tích cực', 'Trung lập', 'Tiêu cực'],
-                datasets: [{
-                    data: [70, 20, 10],
-                    backgroundColor: ['#28a745', '#ffc107', '#dc3545']
-                }]
-            }
-        });
-
-        // Xử lý tìm kiếm sản phẩm
-        document.querySelector('form.d-flex').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const searchTerm = document.querySelector('input[type="search"]').value;
-            alert(`Bạn đang tìm kiếm: ${searchTerm}`);
-            // Thêm logic tìm kiếm sản phẩm ở đây
-        });
-
-        // Xem chi tiết sản phẩm
-        document.querySelectorAll('.btn-primary').forEach(button => {
-            button.addEventListener('click', function() {
-                const productTitle = this.closest('.card').querySelector('.card-title').innerText;
-                window.location.href = './product.html'
-            });
-        });
-
-        // Tải thêm sản phẩm
-        document.getElementById('loadMore').addEventListener('click', function() {
-            alert('Tải thêm sản phẩm...');
-            // Thêm logic tải thêm sản phẩm ở đây
-        });
-
-        // Hiển thị thông báo
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = `alert alert-${type} fixed-top text-center`;
-            notification.innerText = message;
-            document.body.appendChild(notification);
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
-
-        // Ví dụ sử dụng thông báo
-        showNotification('Đăng nhập thành công!');
-    </script>
-
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js" type="module"></script>
 </body>
 </html>
